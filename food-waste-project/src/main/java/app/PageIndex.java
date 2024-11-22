@@ -33,8 +33,8 @@ public class PageIndex implements Handler {
         String html = "<html>";
 
         // Add some Header information
-        html = html + "<head>" + 
-               "<title>Homepage</title>";
+        html = html + "<head>" +
+                "<title>Homepage</title>";
 
         // Add some CSS (external file)
         html = html + "<link rel='stylesheet' type='text/css' href='common.css' />";
@@ -46,39 +46,39 @@ public class PageIndex implements Handler {
         // Add the topnav
         // This uses a Java v15+ Text Block
         html = html + """
-            <div class='topnav'>
-                <a href='/'>Homepage</a>
-                <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>Sub Task 2.A</a>
-                <a href='page2B.html'>Sub Task 2.B</a>
-                <a href='page3A.html'>Sub Task 3.A</a>
-                <a href='page3B.html'>Sub Task 3.B</a>
-            </div>
-        """;
+                    <div class='topnav'>
+                        <a href='/'>Homepage</a>
+                        <a href='mission.html'>Our Mission</a>
+                        <a href='page2A.html'>Sub Task 2.A</a>
+                        <a href='page2B.html'>Sub Task 2.B</a>
+                        <a href='page3A.html'>Sub Task 3.A</a>
+                        <a href='page3B.html'>Sub Task 3.B</a>
+                    </div>
+                """;
 
         // Add header content block
         html = html + """
-            <div class='header'>
-                <h1>
-                    <img src='logo.png' class='top-image' alt='RMIT logo' height='75'>
-                    Homepage
-                </h1>
-            </div>
-        """;
+                    <div class='header'>
+                        <h1>
+                            <img src='logo.png' class='top-image' alt='RMIT logo' height='75'>
+                            Homepage
+                        </h1>
+                    </div>
+                """;
 
         // Add Div for page Content
         html = html + "<div class='content'>";
 
         // Add HTML for the page content
         html = html + """
-            <p>Homepage content</p>
-            """;
+                <p>Homepage content</p>
+                """;
 
         // Get the ArrayList of Strings of all countries
         ArrayList<String> countryNames = getAllCountries();
 
         // Add HTML for the country list
-        html = html + "<h1>All Countries in the food loss database</h1>" + "<ul>";
+        html = html + "<h1>All Test in the food loss database</h1>" + "<ul>";
 
         // Finally we can print out all of the countries
         for (String name : countryNames) {
@@ -93,20 +93,18 @@ public class PageIndex implements Handler {
 
         // Footer
         html = html + """
-            <div class='footer'>
-                <p>COSC2803 - Studio Project Starter Code (Apr24)</p>
-            </div>
-        """;
+                    <div class='footer'>
+                        <p>COSC2803 - Studio Project Starter Code (Apr24)</p>
+                    </div>
+                """;
 
         // Finish the HTML webpage
         html = html + "</body>" + "</html>";
-
 
         // DO NOT MODIFY THIS
         // Makes Javalin render the webpage
         context.html(html);
     }
-
 
     /**
      * Get the names of the countries in the database.
@@ -128,13 +126,13 @@ public class PageIndex implements Handler {
 
             // The Query
             String query = "SELECT * FROM country";
-            
+
             // Get Result
             ResultSet results = statement.executeQuery(query);
 
             // Process all of the results
             while (results.next()) {
-                String countryName  = results.getString("countryName");
+                String countryName = results.getString("countryName");
 
                 // Add the country object to the array
                 countries.add(countryName);
@@ -145,7 +143,7 @@ public class PageIndex implements Handler {
         } catch (SQLException e) {
             // If there is an error, lets just print the error
             System.err.println(e.getMessage());
-            //e.printStackTrace();
+            // e.printStackTrace();
         } finally {
             // Safety code to cleanup
             try {
@@ -155,7 +153,7 @@ public class PageIndex implements Handler {
             } catch (SQLException e) {
                 // connection close failed.
                 System.err.println(e.getMessage());
-                //e.printStackTrace();
+                // e.printStackTrace();
             }
         }
 
