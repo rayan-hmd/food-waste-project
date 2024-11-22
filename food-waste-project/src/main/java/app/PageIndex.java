@@ -78,7 +78,7 @@ public class PageIndex implements Handler {
         ArrayList<String> countryNames = getAllCountries();
 
         // Add HTML for the country list
-        html = html + "<h1>All Test in the food loss database</h1>" + "<ul>";
+        html = html + "<h1>All countries in the food loss database</h1>" + "<ul>";
 
         // Finally we can print out all of the countries
         for (String name : countryNames) {
